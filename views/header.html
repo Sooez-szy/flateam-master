@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Flateam - 轻量项目管理</title>
+	<meta content="" name="keywords">
+    <meta content="....." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" href="/css/flatter.css">
+	<link rel="stylesheet" href="/css/animation.css">
+	<link rel="stylesheet" href="/css/style.css">
+
+	<script type="text/javascript" src="/js/jquery.1.9.0.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/js/flateam-core.js"></script>
+	<script type="text/javascript" src="/js/flateam-module.js"></script>
+	<script type="text/javascript" src="/js/flateam-modal.js"></script>
+	
+	<script type="text/javascript" src="/js/jquery.validation.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/" title="<%= title %>">Flateam</a>
+				<ul class="nav navbar-nav">
+					<li <% if (alias == 'index'){ %>class="active"<% } %>><a href="/">首页</a></li>
+					<li <% if (alias == 'product'){ %>class="active"<% } %>><a href="/product">产品</a></li>
+					<li <% if (alias == 'project'){ %>class="active"<% } %>><a href="/project">项目</a></li>
+					<li <% if (alias == 'task'){ %>class="active"<% } %>><a href="/task">任务</a></li>
+					<li <% if (alias == 'demand'){ %>class="active"<% } %>><a href="/demand">需求</a></li>
+					<li <% if (alias == 'bug'){ %>class="active"<% } %>><a href="/bug">Bug</a></li>
+					
+					
+					<% if (user) { %>
+					<li>
+						<div class="userinfo">
+							<a href="/user/<%= user._id %>"><img src="/img/avatar-small.jpg" class="avatar-small"></a>
+							<a href="/user/<%= user._id %>" class="name"><% if (user.name) { %><%= user.name %><% } else { %><%= user.email %><% } %></a>
+						</div>
+					</li>
+					<!-- <li><a href="/upload">上传</a></li> -->
+					<li>
+						<div class="userdo">
+							<a href="/setting" class="mr20"><i class="icon-cog"></i>设置</a>
+							<a href="/logout"><i class="icon-off"></i>退出</a>
+						</span>
+					</li>
+					<% } else { %>
+					<li>
+						<div class="userdo">
+							<a href="/login" class="mr20"><i class="icon-user"></i>登录</a>
+							<a href="/register"><i class="icon-share"></i>注册</a>
+						</span>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<script type="text/javascript"><% if (success) { %>ui.success('<%= success %>');<% } %><% if (error) { %>ui.error('<%= error %>');<% } %></script>

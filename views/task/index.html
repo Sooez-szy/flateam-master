@@ -1,0 +1,46 @@
+<%- include ../header.html %>
+<div id="" class="container main">
+	<div class="row a-fadein">
+		<div class="container span7">
+			<% if(count <= 0) { %>
+			<div class="main-add">
+				<a href="javascript:void(0);" event-node="post" class="btn btn-primary btn-large"><i class="icon-plus-sign icon-white"></i>添加任务</a>
+				<p>还没有任务，立即添加一个吧！</p>
+			</div>
+			<% } else { %>
+			<div class="main-post">
+				<a href="javascript:void(0);" event-node="post" class="btn btn-primary btn-large"><i class="icon-plus-sign icon-white"></i>添加任务</a>
+			</div>
+			<ul class="main-list">
+				<% task.forEach(function(value, index) { %>
+				<li id="task_<%= value._id %>">
+					<% if(value.status == 1) { %>
+					<a href="javascript:void(0);" class="<% if(value.personal == 0) { %>finished<% } else { %>personal<% } %>" event-node="finish" event-args="id=<%=value._id %>" title="设为未完成"></a>
+					<a href="javascript:void(0);" class="blocked" event-node="showTask" event-args="id=<%=value._id %>">
+					<% } else { %>
+					<a href="javascript:void(0);" class="finish" event-node="finish" event-args="id=<%=value._id %>" title="设为已完成"></a>
+					<a href="javascript:void(0);" class="block" event-node="showTask" event-args="id=<%=value._id %>">
+					<% } %>
+						<h5><%= value.title %></h5>
+					</a>
+				</li>
+				<% }) %>
+			</ul>
+			<% } %>
+		</div>
+
+		<div class="container pull-right span5 sidebar">
+			<div class="well sidebox" id="recent">
+				<h5>参与的项目</h5>
+				<ul>
+					<% project.forEach(function(value, index) { %>
+					<li><a href="/project/<%=value._id %>"><%=value.title %></a></li>
+					<% }) %>
+				</ul>
+			</div>
+			<div class="well sidebox hide" id="show"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/js/flateam-task.js"></script>
+<%- include ../footer.html %>

@@ -1,0 +1,14 @@
+<div class="control-group">
+	<div class="span4">
+		<ul class="userlist">
+		<% member.forEach(function(value, index) { %>
+			<li>
+				<a href="javascript:void(0);" onclick="doForward('<%=pid%>', '<%=value._id %>', '<%=value.name %>');">
+					<img src="/img/avatar.jpg" width="50" height="50" class="avatar-medium"><br>
+					<p><%=value.name %></p>
+				</a>
+			</li>
+		<% }) %>
+		</ul>
+	</div>
+</div>

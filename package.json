@@ -1,0 +1,30 @@
+{
+  "name": "Flateam",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "ejs": "*",
+    "mongodb": "*",
+    "connect-mongo": "*",
+    "markdown": "*",
+    "mongoose": "latest",
+    "imager": "latest",
+    "forever": "latest",
+    "express-promise": "latest",
+    "connect-flash": "latest"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.4.3",
+    "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "serve-favicon": "^2.3.0"
+  }
+}
